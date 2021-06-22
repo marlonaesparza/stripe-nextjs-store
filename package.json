@@ -1,0 +1,27 @@
+{
+  "name": "stripe-nextjs-store",
+  "version": "1.0.0",
+  "description": "A NextJS store leveraging the Stripe API for payments.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlonaesparza/stripe-nextjs-store.git"
+  },
+  "author": "Marlon A. Esparza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marlonaesparza/stripe-nextjs-store/issues"
+  },
+  "homepage": "https://github.com/marlonaesparza/stripe-nextjs-store#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bulma": "^0.9.3",
+    "express": "^4.17.1",
+    "next": "^11.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
