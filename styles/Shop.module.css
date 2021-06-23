@@ -1,0 +1,14 @@
+.products_section {
+  padding: 10px;
+}
+
+.ps_title {
+  text-align: center;
+}
+
+.ps_list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 10px
+}

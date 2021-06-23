@@ -28,7 +28,6 @@ const getStaticProps = async () => {
   const fileContent = await readFile(filePath, {
     encoding: 'utf-8'
   });
-
   const products = JSON.parse(fileContent);
 
   return {

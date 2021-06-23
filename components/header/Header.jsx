@@ -6,7 +6,7 @@ import styles from './Header.module.css';
 
 const Header = () => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <nav className={styles.header_nav}>
         
         <div className={styles.header_left}>
@@ -37,7 +37,7 @@ const Header = () => {
           <CartIcon />
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 

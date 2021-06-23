@@ -11,12 +11,12 @@ const FeaturedCollection = ({ products }) => {
   });
 
   return (
-    <div className={styles.featured_collection}>
+    <section className={styles.featured_collection}>
       <h2 className={styles.fc_title}>Featured Collection</h2>
       <div className={styles.fc_products}>
         { productItems }
       </div>
-    </div>
+    </section>
   );
 };
 

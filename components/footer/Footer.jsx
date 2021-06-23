@@ -6,9 +6,9 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       {`${year} ${String.fromCharCode(169)} DEMO`}
-    </div>
+    </footer>
   );
 };
 
