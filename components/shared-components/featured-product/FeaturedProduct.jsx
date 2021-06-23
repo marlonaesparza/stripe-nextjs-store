@@ -16,7 +16,7 @@ const FeaturedProduct = ({ product }) => {
         <p>${ price }</p>
       </div>
       <div className={styles.fp_interaction}>
-        <button className='button is-black'>ADD</button>
+        <button className={'button is-black ' + styles.fp_btn}>ADD</button>
       </div>
     </div>
   );
