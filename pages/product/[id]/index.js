@@ -1,4 +1,5 @@
 import React from 'react';
+import Error from 'next/error';
 import Layout from '../../../components/shared-components/layout/Layout';
 import SingleProduct from '../../../components/product/SingleProduct';
 import { readFile } from 'fs/promises';
@@ -6,6 +7,16 @@ import path from 'path';
 
 
 const Product = ({ product }) => {
+  if (!product) {
+    return (
+      <React.Fragment>
+        <Layout>
+          <Error statusCode={404}/>
+        </Layout>
+      </React.Fragment>
+    );
+  }
+
   return (
     <React.Fragment>
       <Layout>
@@ -27,7 +38,7 @@ const getStaticProps = async (context) => {
   const singleProduct = products.filter((p) => {
     return p.id === Number(id);
   });
-  const product = singleProduct[0];
+  const product = singleProduct[0] || null;
 
   return {
     props: {
@@ -51,7 +62,7 @@ const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 };
 
