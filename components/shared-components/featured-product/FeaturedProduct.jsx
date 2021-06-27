@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './FeaturedProduct.module.css';
+import isInCart from '../../../helpers/isInCart';
 
 
 const FeaturedProduct = ({ product }) => {
   const { title, price, imageUrl, id } = product;
+  const { cartItems, addProduct, addToProductCount } = useContext(CartContext);
 
   return (
     <div>
@@ -18,11 +21,15 @@ const FeaturedProduct = ({ product }) => {
             <h3>{ title }</h3>
             <p>${ price }</p>
           </div>
-          <div className={styles.fp_interaction}>
-            <button className={'button is-black ' + styles.fp_btn}>ADD</button>
-          </div>
         </div>
       </Link>
+      <div className={styles.fp_interaction}>
+        {
+          isInCart(product, cartItems) ?
+            <button className={'button is-black ' + styles.fp_btn} onClick={() => addToProductCount(product)}>ADD MORE</button> :
+            <button className={'button is-light ' + styles.fp_btn} onClick={() => addProduct(product)}>ADD</button>
+        }
+      </div>
     </div>
   );
 };

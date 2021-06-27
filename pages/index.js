@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { CartContext } from '../contexts/CartContext';
 import Head from 'next/head';
 import Layout from '../components/shared-components/layout/Layout';
 import FeaturedCollection from '../components/featured-collection/FeaturedCollection';
@@ -7,11 +8,14 @@ import path from 'path';
 
 
 const Home = ({ products }) => {
+  const { updateState } = useContext(CartContext);
+  useEffect(updateState, []);
+
   return (
     <React.Fragment>
       
       <Head>
-        <title>Home | Store</title>
+        <title>Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
