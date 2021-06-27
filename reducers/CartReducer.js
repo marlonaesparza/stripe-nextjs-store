@@ -1,5 +1,6 @@
-import isInCart from "../helpers/inInCart";
-
+import isInCart from "../helpers/isInCart";
+import sumItems from "../helpers/sumItems";
+import addCartToLocalStorage from "../helpers/addCartToLocalStorage";
 
 const cartReducer = (state, action) => {
   switch (action.type) {
@@ -10,35 +11,74 @@ const cartReducer = (state, action) => {
           quantity: 1
         });
       };
+
+      addCartToLocalStorage([...state.cartItems]);
       
       return {
         cartItems: [...state.cartItems],
-        itemCount: state.cartItems.reduce((count, item) => {
-          return count + item.quantity;
-        }, 0),
-        total: state.cartItems.reduce((total, item) => {
-          return total + (item.price * item.quantity);
-        }, 0)
+        ...sumItems([...state.cartItems])
       };
 
     case 'ADD_ITEM_COUNT':
-      const cartItems = state.cartItems.map((item) => {
+      let addCartItems = state.cartItems.map((item) => {
         if (item.id === action.payload.id) {
           item.quantity += 1;
         };
-
         return item;
       });
 
+      addCartToLocalStorage([...addCartItems]);
+
       return {
-        cartItems,
-        itemCount: cartItems.reduce((count, item) => {
-          return count + item.quantity;
-        }, 0),
-        total: cartItems.reduce((total, item) => {
-          return total + (item.price * item.quantity);
-        }, 0)
+        cartItems: addCartItems,
+        ...sumItems(addCartItems)
       };
+
+    case 'SUB_ITEM_COUNT':
+      let subCartItems = state.cartItems.map((item) => {
+        if (item.id === action.payload.id) {
+          item.quantity -= 1;
+        };
+        return item;
+      });
+
+      addCartToLocalStorage([...subCartItems]);
+
+      return {
+        cartItems: subCartItems,
+        ...sumItems(subCartItems)
+      };
+    
+    case 'REM_ITEM_CART':
+      let remCartItems = state.cartItems.filter((item) => {
+        if (!(item.id === action.payload.id)) {
+          return item;
+        };
+      });
+
+      addCartToLocalStorage([...remCartItems]);
+
+      return {
+        cartItems: remCartItems,
+        ...sumItems(remCartItems)
+      };
+    
+    case 'CLEAR_ITEMS_CART':
+      localStorage.removeItem('cart');
+
+      return {
+        cartItems: [],
+        itemCount: 0,
+        total: 0
+      };
+
+    case 'UPDATE_STATE':
+      let localCartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      return {
+        cartItems: localCartItems,
+        ...sumItems(localCartItems)
+      }
     default:
       return state;
   };

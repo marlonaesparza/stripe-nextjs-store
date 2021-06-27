@@ -21,10 +21,30 @@ const CartContextProvider = ({ children }) => {
     dispatch({type: 'ADD_ITEM_COUNT', payload: product});
   };
 
+  const subFromProductCount = (product) => {
+    dispatch({type: 'SUB_ITEM_COUNT', payload: product});
+  };
+
+  const removeItemFromCart = (product) => {
+    dispatch({type: 'REM_ITEM_CART', payload: product});
+  };
+
+  const clearItemsFromCart = () => {
+    dispatch({type: 'CLEAR_ITEMS_CART'});
+  };
+
+  const updateState = () => {
+    dispatch({type: 'UPDATE_STATE'});
+  };
+
   const contextValues = {
     ...state,
     addProduct,
-    addToProductCount
+    addToProductCount,
+    subFromProductCount,
+    removeItemFromCart,
+    clearItemsFromCart,
+    updateState
   };
 
   return (

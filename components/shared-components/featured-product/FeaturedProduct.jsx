@@ -3,7 +3,7 @@ import { CartContext } from '../../../contexts/CartContext';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './FeaturedProduct.module.css';
-import isInCart from '../../../helpers/inInCart';
+import isInCart from '../../../helpers/isInCart';
 
 
 const FeaturedProduct = ({ product }) => {

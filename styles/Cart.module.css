@@ -3,3 +3,9 @@
   font-weight: bold;
   font-size: 2rem;
 }
+
+.empty_msg {
+  text-align: center;
+  margin: 20px 0px;
+  padding: 10px;
+}

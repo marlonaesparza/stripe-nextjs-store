@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { CartContext } from '../contexts/CartContext';
 import Head from 'next/head';
 import Layout from '../components/shared-components/layout/Layout';
 import FeaturedProduct from '../components/shared-components/featured-product/FeaturedProduct';
@@ -8,6 +9,9 @@ import styles from '../styles/Shop.module.css';
 
 
 const Shop = ({ products }) => {
+  const { updateState } = useContext(CartContext);
+  useEffect(updateState, []);
+
   const productItems = products.map((p) => {
     return <FeaturedProduct key={p.id} product={p}/>
   });
@@ -16,7 +20,7 @@ const Shop = ({ products }) => {
     <React.Fragment>
       
       <Head>
-        <title>Shop | Store</title>
+        <title>Shop</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
