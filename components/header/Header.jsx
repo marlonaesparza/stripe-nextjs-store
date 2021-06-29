@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import CartIcon from './../cart-icon/CartIcon';
+import CartIcon from './../cart/cart-icon/CartIcon';
 import styles from './Header.module.css';
 
 

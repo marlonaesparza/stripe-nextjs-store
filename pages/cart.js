@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import Head from 'next/head';
 import Layout from '../components/shared-components/layout/Layout';
-import CartItem from '../components/cart-item/CartItem';
-import CartSummary from '../components/cart-summary/CartSummary';
-import CartControls from '../components/cart-controls/CartControls';
+import CartItem from '../components/cart/cart-item/CartItem';
+import CartSummary from '../components/cart/cart-summary/CartSummary';
+import CartControls from '../components/cart/cart-controls/CartControls';
 import styles from '../styles/Cart.module.css';
 
 
@@ -22,7 +22,7 @@ const Cart = () => {
       </Head>
 
       <Layout>
-        <h1 className={styles.page_title}>Cart</h1>
+        <h1 className={styles.page_title}>Review Cart</h1>
         {
           cartItems.length > 0 ?
             <div>
