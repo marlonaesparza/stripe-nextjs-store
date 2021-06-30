@@ -1,8 +1,9 @@
-const Stripe = require('./../stripe');
-
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_SEC_KEY);
 
 const createCheckout = async (req, res) => {
   const domainURL = process.env.DOMAIN_URL;
+
   const { line_items, customer_email } = req.body;
 
   if (!line_items || !customer_email) {
@@ -12,7 +13,7 @@ const createCheckout = async (req, res) => {
   };
 
   try {
-    let session = await Stripe.checkout.sessions.create({
+    let session = await stripe.checkout.sessions.create({
       mode: 'payment',
       payment_method_types: ['card'],
       success_url: `${domainURL}/success`,
@@ -29,7 +30,7 @@ const createCheckout = async (req, res) => {
   } catch (error) {
     console.log('Stripe Checkout Error:', error);
 
-    res.status(400).json({ error: 'An error occured- unable to create session.'})
+    res.status(400).json({ error: 'An error occurred- unable to create session.'})
   };
 };
 

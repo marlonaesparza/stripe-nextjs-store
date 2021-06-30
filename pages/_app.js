@@ -5,7 +5,7 @@ import CartContextProvider from '../contexts/CartContext';
 import '../styles/global.css';
 
 
-const StripePromise = loadStripe(`${process.env.STRIPE_PUB_KEY}`);
+const StripePromise = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUB_KEY}`);
 
 const MyApp = ({ Component, pageProps }) => {
   return (

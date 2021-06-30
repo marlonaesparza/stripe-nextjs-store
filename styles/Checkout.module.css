@@ -3,3 +3,11 @@
   font-weight: bold;
   font-size: 1.5rem;
 }
+
+.checkout_form {
+  text-align: center;
+}
+
+.input_ {
+  margin: 5px;
+}
