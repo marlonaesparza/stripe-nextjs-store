@@ -63,22 +63,23 @@ const Checkout = () => {
         <div className={styles.page_title_container}>
           <h2 className={styles.page_title}>Checkout Summary</h2>
         </div>
+        <CartSummary />
         <form onSubmit={handleCheckout} className={styles.checkout_form}>
           <div className={styles.form_email_section}>
-            <label htmlFor='email'>Email:</label>
+            <label htmlFor='email'>Email: </label>
             <input
               type='email'
               name='email' 
               value={customerEmail}
+              required
               onChange={(e) => setCustomerEmail(e.target.value)}
               className={styles.email_input}
             />
           </div>
           <div className={styles.form_submit_section}>
-            <input type='submit' className='button is-black' />
+            <input type='submit' value='Checkout' className='button is-black' />
           </div>
         </form>
-        <CartSummary />
       </Layout>
 
     </React.Fragment>
