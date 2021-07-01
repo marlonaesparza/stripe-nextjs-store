@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../../contexts/CartContext';
+import { CartContext } from '../../../contexts/CartContext';
 import Link from 'next/link';
 import Image from 'next/image';
-import cartIcon from '../../assets/shopping-cart.png';
+import cartIcon from '../../../assets/shopping-cart.png';
 import styles from './CartIcon.module.css';
 
 

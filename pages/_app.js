@@ -1,12 +1,18 @@
 import React from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import CartContextProvider from '../contexts/CartContext';
 import '../styles/global.css';
 
 
+const StripePromise = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUB_KEY}`);
+
 const MyApp = ({ Component, pageProps }) => {
   return (
     <CartContextProvider>
-      <Component {...pageProps} />  
+      <Elements stripe={StripePromise}>
+        <Component {...pageProps} />  
+      </Elements>
     </CartContextProvider>
   );
 };
