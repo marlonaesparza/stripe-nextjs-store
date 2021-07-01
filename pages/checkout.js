@@ -65,6 +65,7 @@ const Checkout = () => {
         </div>
         <form onSubmit={handleCheckout} className={styles.checkout_form}>
           <div className={styles.form_email_section}>
+            <label htmlFor='email'>Email:</label>
             <input
               type='email'
               name='email' 

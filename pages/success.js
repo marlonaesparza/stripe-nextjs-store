@@ -17,17 +17,19 @@ const Success = () => {
       </Head>
 
       <Layout>
-        <div className={styles.page_title_cont}>
-          <h1 className={styles.page_title}>Transaction Successful</h1>
-        </div>
-        <div className={styles.page_desc_cont}>
-          <p className={styles.page_desc}>Payment was successful, thank you.</p>
-        </div>
-        <div className={styles.page_controls}>
-          <Link href='/shop'>
-            <button className='button is-black'>Continue Shopping</button>
-          </Link>
-        </div>
+        <main className={styles.page_main}>
+          <div className={styles.page_title_cont}>
+            <h1 className={styles.page_title}>Transaction Successful</h1>
+          </div>
+          <div className={styles.page_desc_cont}>
+            <p className={styles.page_desc}>Payment was successful, thank you.</p>
+          </div>
+          <div className={styles.page_controls}>
+            <Link href='/shop'>
+              <button className='button is-black'>Continue Shopping</button>
+            </Link>
+          </div>
+        </main>
       </Layout>
     </React.Fragment>
   );
